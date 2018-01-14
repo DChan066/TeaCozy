@@ -1,0 +1,146 @@
+/* Universal styling */
+
+body {
+  margin: 0;
+  font-family: Helvetica;
+  font-size: 22px;
+  text-align: center;
+  color: seashell;
+  background-color: black;
+  opacity: 0.9;
+}
+
+.container { /* Each section must have an offset to clear the header when clicking the nav links in the upper-right. */
+  position: relative;
+  padding-top: 70px;
+  top: 70px;
+  margin: 0 auto; /* Center the entire section horizontally */
+}
+
+.banner {
+  width: 100%;
+}
+
+.twoline.banner { /* "Our Mission" and "Tea of the Month" banners have an h4 heading in addition to h2 */
+  display: flex;
+  flex-direction: column; /* Stack h2 on top of h4, if h2 is present */
+  justify-content: space-around; /* Vertically center h2 and h4 */
+  height: 100px;
+}
+
+h2, h3, h4 {
+  margin: 0px; /* The heading tags have margins attached to them by default, we must zero them out if we want to space them using flexbox properties */
+}
+
+.card_holder {
+  display: flex;
+  justify-content: center; /* Move cards toward the center, but respect padding set by .card */
+  margin: 0 auto;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  align-items: center; /* Move logo and nav down a bit */
+  position: fixed; /* Make the header remain at the top of the screen even when you scroll down */
+  width: 100%;
+  height: 69px;
+  background-color: black;
+  border-bottom: 1px solid seashell;
+  z-index: 5;
+}
+
+.logo {
+  margin-left: 10px;
+}
+
+nav {
+  display: flex;
+  flex-grow: 1; /* Flex-grow must be set to make header elements move with a resizing window */
+  justify-content: flex-end; /* Put the nav on the right side of the header */
+}
+
+nav span a {
+  color: seashell;
+  padding: 0 10px;
+  text-decoration: underline;
+}
+
+/* Mission section */
+
+#mission {
+  display: flex;
+  align-items: center; /* Move the "Our Mission" banner down */
+  width: 1200px;
+  height: 700px;
+  background-image: url(../images/img-mission-background.jpg)
+}
+
+#mission .banner {
+  background-color: black;
+  position: relative;
+  top: -70px; /* Adjusting for header offset */
+}
+
+/* Featured Tea section */
+
+#featured {
+  display: flex;
+  flex-wrap: wrap; /* Stack banner on top of cards */
+  width: 1200px; /* Setting a fixed width for this section prevents it from rearranging when the window is resized. */
+}
+
+#featured .card_holder {
+  width: 1050px; /* We want the first row of cards to have three cards, but if we use a justify-content value of center then we can't use space-around.  So we add 50 pixels to account for the 25 pixels of extra padding on both sides. */
+}
+
+.card {
+  padding: 15px 25px;
+}
+
+.card h4 {
+  margin-top: 10px; /* Space between each card image and its caption */
+}
+
+/* Locations section */
+
+#locations {
+  width: 1200px;
+  height: 500px;
+  background-image: url(../images/img-locations-background.jpg);
+  top: 140px; /* Adjusting for header offset */
+}
+
+#locations .banner {
+  padding-bottom: 15px;
+}
+
+.location_card {
+  display: flex;
+  flex-direction: column; /* Stack the address lines */
+  justify-content: space-around; /* Put equal vertical space around each of the 4 address lines */
+  margin: 0 20px; /* We want 40 pixels between each location card, so we put 20 pixels of margin on both sides */
+  width: 300px;
+  height: 280px;
+  background-color: black;
+  opacity: 1;
+}
+
+/* Contact section */
+
+#contact {
+  height: 200px;
+}
+
+#contact h2 {
+  padding: 10px 0;
+}
+
+/* Footer section */
+
+.footer {
+  margin-left: 20px;
+  text-align: left;
+  top: 0; /* Adjusting for header offset */
+}
